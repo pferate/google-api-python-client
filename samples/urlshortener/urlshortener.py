@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
@@ -32,6 +32,7 @@ To get detailed log output run:
 
   $ python urlshortener.py --logging_level=DEBUG
 """
+from __future__ import print_function
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 

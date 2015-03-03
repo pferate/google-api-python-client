@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
 #
@@ -18,6 +18,7 @@
 
 Unit tests for the Protocol Buffer model.
 """
+from __future__ import absolute_import
 
 __author__ = 'mmcdonald@google.com (Matt McDonald)'
 

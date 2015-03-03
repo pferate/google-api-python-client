@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
 #
@@ -18,6 +18,8 @@
 
 Unit tests for the googleapiclient.http.
 """
+from __future__ import absolute_import
+from six.moves import range
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
@@ -624,7 +626,7 @@ class TestHttpRequest(unittest.TestCase):
     request.execute(num_retries=num_retries)
 
     self.assertEqual(num_retries, len(sleeptimes))
-    for retry_num in xrange(num_retries):
+    for retry_num in range(num_retries):
       self.assertEqual(10 * 2**(retry_num + 1), sleeptimes[retry_num])
 
   def test_no_retry_fails_fast(self):
@@ -796,7 +798,7 @@ class TestBatch(unittest.TestCase):
     try:
       batch.execute(http=http)
       self.fail('Should raise exception')
-    except BatchError, e:
+    except BatchError as e:
       boundary, _ = e.content.split(None, 1)
       self.assertEqual('--', boundary[:2])
       parts = e.content.split(boundary)

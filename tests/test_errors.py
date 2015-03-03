@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
 #
@@ -16,6 +16,7 @@
 
 """Tests for errors handling
 """
+from __future__ import absolute_import
 
 __author__ = 'afshar@google.com (Ali Afshar)'
 

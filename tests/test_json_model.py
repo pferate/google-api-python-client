@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
 #
@@ -18,6 +18,8 @@
 
 Unit tests for the JSON model.
 """
+from __future__ import absolute_import
+import six
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
@@ -152,7 +154,7 @@ class Model(unittest.TestCase):
     try:
       content = model.response(resp, content)
       self.fail('Should have thrown an exception')
-    except HttpError, e:
+    except HttpError as e:
       self.assertTrue('not authorized' in str(e))
 
     resp['content-type'] = 'application/json'
@@ -160,7 +162,7 @@ class Model(unittest.TestCase):
     try:
       content = model.response(resp, content)
       self.fail('Should have thrown an exception')
-    except HttpError, e:
+    except HttpError as e:
       self.assertTrue('not authorized' in str(e))
 
   def test_good_response(self):
@@ -214,7 +216,7 @@ class Model(unittest.TestCase):
       def __init__(self, items):
         super(MockResponse, self).__init__()
         self.status = items['status']
-        for key, value in items.iteritems():
+        for key, value in six.iteritems(items):
           self[key] = value
     old_logging = googleapiclient.model.logging
     googleapiclient.model.logging = MockLogging()

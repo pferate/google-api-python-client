@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 # -*- coding:utf-8 -*-
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
@@ -19,6 +19,7 @@
 
 Unit tests for model utility methods.
 """
+from __future__ import absolute_import
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 

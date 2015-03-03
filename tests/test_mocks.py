@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/env python
 #
 # Copyright 2014 Google Inc. All Rights Reserved.
 #
@@ -18,6 +18,7 @@
 
 Unit tests for the Mocks.
 """
+from __future__ import absolute_import
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
@@ -140,7 +141,7 @@ class Mocks(unittest.TestCase):
     try:
       activity = plus.activities().list(collection='public', userId='me').execute()
       self.fail('An exception should have been thrown')
-    except HttpError, e:
+    except HttpError as e:
       self.assertEqual('{}', e.content)
       self.assertEqual(500, e.resp.status)
       self.assertEqual('Server Error', e.resp.reason)
